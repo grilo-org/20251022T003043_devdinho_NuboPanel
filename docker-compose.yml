@@ -1,0 +1,13 @@
+services:
+  nubopanel:
+    build:
+      context: .
+    ports:
+      - "5173:5173"  # Para desenvolvimento
+      - "4173:4173"  # Para preview (hmg/prod)
+    volumes:
+      - .:/app
+      - /app/node_modules
+    env_file:
+      - .env
+    restart: unless-stopped
